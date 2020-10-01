@@ -1,0 +1,21 @@
+#include <stdio.h>
+int greater_number(int &x,int &z)
+{
+  if(x>z)
+  {
+    return x;
+  }
+  else
+    return z;
+}
+int main()
+{
+int a,num;
+printf("\n Enter the 1st number: ");
+scanf("%d",&a);
+printf("\n Enter the 2nd number: ");
+scanf("%d",&b);
+num=greater_number(a,b);
+printf("\n The greater number is: %d",num);
+return 0;
+}
