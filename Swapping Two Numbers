@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a;
+int b;
+printf("Enter First Number");
+scanf("%d",&a);
+printf("Enter Second Number");
+scanf("%d",&b);
+printf("Before Swapping");
+printf("Value of a is",a);
+printf("Value of b is",b);
+printf("After Swapping");
+a=a+b;
+b=a-b;
+a=a-b;
+printf("Value of a is",a);
+printf("Value of b is",b);
+return 0;
+}
