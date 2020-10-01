@@ -1,0 +1,2 @@
+Let str = "Hello World";
+Console.log (str);
