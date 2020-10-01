@@ -1,0 +1,21 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int main()
+{
+    
+    float n,r,p,a,result;
+    int i; 
+    cout<<"enter the value of the r , n & p"<<endl;
+    cin>>r>>n>>p;
+    a=r+1;
+    for ( i = 1; i==(int)n-1; i++)
+    {
+        /* code */
+        a=a*(1+r);
+    }
+    result=a*p;
+    cout<<"the result is : "<<result;
+    getch();
+        return 0;
+}
