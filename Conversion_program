@@ -1,0 +1,56 @@
+#include<stdio.h>
+int main() {
+
+    float unit, result;
+    char input;
+    float kmsToMiles = 0.621371;
+    float inchesToFoot = 0.0833333;
+    float cmsToInches = 0.393701;
+    float poundToKgs = 0.453592;
+    float inchesToMeters = 0.0254;
+
+    while (1 != 0) {
+        printf("Please choose an option \n  1.kmsToMiles\n  2.inchesToFoot\n  3.cmsToInches\n  4.poundToKgs\n  q.Quit the program\n");
+        printf("Enter a  input \n");
+        scanf("%c", &input);
+        switch (input) {
+            case '1':
+                printf("enter the unit to be converted \n");
+                scanf("%f", &unit);
+                result = unit * kmsToMiles;
+                printf("%f kms is converted to %f miles \n", unit, result);
+                break;
+            case '2':
+                printf("enter the unit to be converted \n");
+                scanf("%f", &unit);
+                result = unit * inchesToFoot;
+                printf("%f is converted to %f  \n", unit, result);
+                break;
+
+            case '3':
+                printf("enter the unit to be converted \n");
+                scanf("%f", &unit);
+                result = unit * cmsToInches;
+                printf("%f  is converted to %f \n", unit, result);
+                break;
+
+
+            case '4':
+                printf("enter the unit to be converted \n");
+                scanf("%f", &unit);
+                result = unit * poundToKgs;
+                printf("%f is converted to %f \n", unit, result);
+                break;
+            case 'q':
+                printf("Quiting the program \n");
+                goto end;
+                break;
+            default:
+                printf("In default now \n");
+        }
+
+    }
+    end:
+
+    return 0;
+}
