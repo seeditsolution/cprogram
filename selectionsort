@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,j,min,c=0;
+    scanf("%d",&n);
+    int a[n];
+    
+    for(i=1;i<=n;i++)
+        scanf("%d",&a[i]);
+    
+    for(i=1;i<=n-1;i++)
+    {
+        min = i;
+        for(j=i+1;j<=n;j++)
+        {
+            c++;
+            if (a[j] < a[min])
+            {
+                min = j;
+            }
+        }    
+        if(min!=i)
+        {
+           int temp=a[i];
+           a[i]=a[min];
+           a[min]=temp;
+        }
+    }
+    
+    for(i=1;i<=n;i++)
+        printf("%d ",a[i]);
+    printf("\n%d\n%d",c,n-1);
+    
+    return 0;
+}
