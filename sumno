@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+    int a = 4;
+    float b = 8.5;
+    int c = 6;
+
+    printf("the value of a is %d \n", a);
+    printf("the value of b is %f \n", b);
+    printf("sum of a and b is %f" , a + b);
+
+    return 0;
+}
