@@ -1,0 +1,111 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int checkcoprime(int num)
+{
+	int a,b,temp;
+	a=num;
+	b=26;
+	
+	while(b!=0)
+	{
+		temp=b;
+		b=a%b;
+		a=temp;
+	
+	}
+	
+	return a;
+	
+}
+main()
+{
+	int a,b,check,numstr[1000];
+	char str[1000];
+	printf("Enter a ( 1 to 25) both included which is co-prime with 26\n");
+	scanf("%d",&a);
+	if(a>=1 && a<=25)
+	{
+		check=checkcoprime(a);
+		if(check!=1)
+		{
+			printf("Enter the one which is co-prime with 26\n");
+			exit(0);
+		}
+		
+	}
+	else
+	{
+		printf("Enter between 1 and 25\n ");
+		exit(1);
+	}
+	
+	printf("Enter b ( 0 to 25) both included \n");
+	scanf("%d",&b);	
+	if(b<1 || a>25)
+	{
+		printf("Enter b between 0 to 25 \n");
+		exit(3);
+		
+	}
+	
+	printf("Enter the string to be encypted: \n");
+	fflush(stdin);
+	gets(str);
+	
+	// converting string into capital letters
+	
+	int i,j;
+	
+	for(i=0;i<strlen(str);i++)
+	{
+		if(str[i]!=' ')
+		{
+			str[i]=toupper(str[i]);
+			
+		}
+		
+	}
+
+	str[i]='\0';
+	
+	printf("Entered string is: %s \n",str);
+	
+	for(i=0;i<strlen(str);i++)
+	{
+		if(str[i]!=' ')
+		{
+			numstr[i]=str[i]-'A';
+		}
+		
+		else
+		{
+			numstr[i]=-20;
+		}
+	}
+
+	printf("The affine cipher is : ");
+	for(i=0;i<strlen(str);i++)
+	{
+		
+		if(numstr[i]!=-20)
+		{
+			
+			numstr[i]= ((a*numstr[i])+b)%26;
+			printf("%c",numstr[i]+'A');
+		}
+		
+		else{
+			printf(" ");
+		}
+		
+		
+		
+	}
+	
+	
+
+	
+	
+}
