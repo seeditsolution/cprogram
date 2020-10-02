@@ -1,0 +1,30 @@
+//PROGRAM TO COUNT VOWELS IN A STRING..
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
+{
+   char s1[30];
+   int count=0,i;
+   clrscr();
+   printf("Enter the sentence:");
+   gets(s1);
+   for(i=0;i<strlen(s1);i++)
+   switch(s1[i])
+   {
+      case'a':
+      case'e':
+      case'i':
+      case'o':
+      case'u':
+      case'A':
+      case'E':
+      case'I':
+      case'O':
+      case'U':
+      count++;
+      break;
+   }
+   printf("%d vowels are present in the sentence",count);
+   getch();
+}
