@@ -1,0 +1,16 @@
+void printFun(int test)
+{
+    if (test < 1)
+        return;
+    else
+    {
+        print test;
+        printFun(test-1);    // statement 2
+        print test;
+        return;
+    }
+}
+
+// Calling function printFun()
+int test = 3;
+printFun(test);
