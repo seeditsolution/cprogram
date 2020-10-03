@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int n,t,rev=0;
+clrscr();
+printf("Enter the any value to check armstrong no : ");
+scanf("%d",&n);
+t=n;
+while(n>0)
+{
+rev+rev+(n%10)*(n%10)*(n%10);
+n=n/10;
+}
+if(rev=t)
+{
+printf("\nThe no. is armstrong");
+}
+else
+{
+printf("\nThe no. is not armstrong");
+}
+getch();
+}
