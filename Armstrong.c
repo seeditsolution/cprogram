@@ -11,7 +11,7 @@ int main() {
         
        result += remainder * remainder * remainder;
         
-       // removing last digit from the orignal number
+       // removing last digit from the orignal number remove last numner
        originalNum /= 10;
     }
 
