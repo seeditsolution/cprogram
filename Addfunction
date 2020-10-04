@@ -1,10 +1,10 @@
 void add(int,int);
 #include<stdio.h>
 int main(){
-int a,b;
+int num1,num2;
 printf("Enter two integers\n");
-scanf("%d %d",&a,&b);
-add(a,b);
+scanf("%d %d",&num1,&num2);
+add(num1,num2);
 return 0;
 }
 void add(int x,int y){
