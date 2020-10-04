@@ -1,0 +1,13 @@
+void add(int,int);
+#include<stdio.h>
+int main(){
+int num1,num2;
+printf("Enter two integers\n");
+scanf("%d %d",&num1,&num2);
+add(num1,num2);
+return 0;
+}
+void add(int x,int y){
+int sum=x+y;
+printf("Sum of two numbers is %d",sum);
+}

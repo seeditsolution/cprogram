@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+int main()
+
+{
+
+char ch,ch1;
+
+for(ch='a';ch<='z';ch++)
+
+{
+
+printf("%c %c\n",ch,ch-32);
+
+}
+
+}
+
+With ascii
+
+#include<stdio.h>
+
+int main()
+
+{
+
+char ch;
+
+for(ch='a';ch<='z';ch++)
+
+{
+
+printf("%c %c %d %d\n",ch,ch-32,ch,ch-32);
+
+}
+
+}

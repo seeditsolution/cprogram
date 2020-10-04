@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+
+int main()
+
+{
+
+  int a,b;
+
+  printf("first:");
+
+  scanf("%d",&a);
+
+  printf("second:");
+
+  scanf("%d",&b);
+
+  int c=a*b;
+
+  printf("product:%d",c);
+
+  return 0;
+
+}

@@ -1,0 +1,121 @@
+/*
+
+    Readability solution by Adarsh Singh
+
+*/
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <math.h>
+
+int count_letters(string text);  // function for counting letters
+int count_words(string text);   // function for counting words
+int count_sent(string text);    // function for counting sentences
+int colemanformula(double L, double S); //Coleman-Liau index formula
+
+
+int main(void)
+{
+    string text = get_string("Text: ");     // user input of text
+    float letters = count_letters(text);    // storing the number of letters
+    //printf("%.1f letters(s)\n",letters);
+    float words = count_words(text);        // storing the number of words
+    //printf("%.1f word(s)\n",words);
+    float sentences = count_sent(text);     // storing the number of sentences
+    //printf("%.1f sentence(s)\n", sentences);
+
+    double L = (letters / words) * 100;     // L is the average number of letters per 100 words in the text
+    double S = (sentences / words) * 100;   // S is the average number of sentences per 100 words in the text.
+
+    int grade = colemanformula(L, S);       // calling function of coleman formula
+
+    if (grade < 1)                          // checking grade condition
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (grade > 1 && grade <= 16)      // checking grade condition
+    {
+        printf("Grade %i\n", grade);
+    }
+    else
+    {
+        printf("Grade 16+\n");
+    }
+
+
+
+
+}
+
+int count_letters(string text)      // function for counting the number of letters in user input
+{
+    int count = 0;
+
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        if (text[i] >= 'A' && text[i] <= 'Z')
+        {
+            count = count + 1;
+        }
+        else if (text[i] >= 'a' && text[i] <= 'z')
+        {
+            count = count + 1;
+        }
+        else if (text[i] == ' ')
+        {
+            count = count + 0;
+        }
+    }
+
+    return count;
+
+}
+
+int count_words(string text)    // function for counting the number of words in user input
+{
+    int words = 0, n = strlen(text);
+
+    for (int i = 0; i <= n; i++)
+    {
+
+        if (text[i] == ' ')
+        {
+            words = words + 1;
+        }
+
+    }
+
+    if (text[n - 1] == '.' || text[n - 1] == '!' || text[n - 1] == '?')
+    {
+        words = words + 1;
+    }
+
+    return words;
+}
+
+int count_sent(string text)     // function for counting the number of sentences in user input
+{
+    int sent = 0, n = strlen(text);
+
+    for (int i = 0; i <= n; i++)
+    {
+        if (text[i] == '!' || text[i] == '.' || text[i] == '?')
+        {
+            sent = sent + 1;
+        }
+
+    }
+    return sent;
+}
+
+int colemanformula(double L, double S)  // coleman forumla for finding out the grade
+{
+    double index = 0;
+    index = (0.0588 * L) - (0.296 * S) - 15.8;
+
+    int grade = round(index);
+    return grade;
+
+}
+

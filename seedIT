@@ -1,0 +1,9 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+
+printf("Seed IT Solution is great")
+
+return 0;
+}

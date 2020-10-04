@@ -1,0 +1,33 @@
+#include <graphics.h>
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int gd = DETECT, gm, i;
+    int dx, dy, steps, x, y;
+    float xinc, yinc;
+    int x0, x1, y0, y1;
+    initgraph(&gd, &gm, "");
+    x0 =10, y0=20, x1=100, y1=110;
+    dx = x1-x0;
+    dy = y1-y0;
+    if(abs(dx)>=abs(dy)){
+        steps = abs(dx);
+    }
+    else{
+        steps = abs(dy);
+    }
+    xinc = dx/steps;
+    yinc = dy/steps;
+    x=x0;
+    y=y0;
+    putpixel(x0, y0, 3);
+    for (i=0; i<steps; i++){
+        x=x+xinc;
+        y=y+yinc;
+        putpixel(x0, y0, 3);
+    }
+    closegraph();
+    return 0;
+}
