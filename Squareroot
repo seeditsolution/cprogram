@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+ float x,y;
+ clrscr();
+ printf("Enter the number \n");
+ scanf("%f",&x);
+ y-sqrt(x);
+ printf("Square root of %f \n",x,y);
+ getch();
+}
