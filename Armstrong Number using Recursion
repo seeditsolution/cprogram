@@ -1,0 +1,19 @@
+#include<stdio.h>
+int arm(int);
+void main()
+{
+	int n;
+	printf("Enter the number :");
+	scanf("%d",&n);
+	if(n==arm(n))
+	printf("%d is an armstrong number",n);
+	else
+	printf("%d is not an armstrong number ",n);
+}
+int arm(int n)
+{
+	if(n<10)
+	return (n*n*n);
+	else
+	return ((n%10)*(n%10)*(n%10)+ arm(n));
+}
