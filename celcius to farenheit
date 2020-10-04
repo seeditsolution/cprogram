@@ -1,0 +1,11 @@
+/*to convert celcius to farenheit*/
+#include<stdio.h>
+
+int main(){
+float celcius,farenheit;
+printf("enter the value of celcius:");
+scanf("%f",&celcius);
+farenheit=(celcius*9/5)+32;
+printf("the temperature in farenheit is:%f",farenheit);
+return 0;
+}
