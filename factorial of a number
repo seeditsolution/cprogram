@@ -1,0 +1,15 @@
+#include<stdio.h>
+factorial();
+int main()
+{int e;
+ e=factorial();
+ printf("%d",e);
+}
+factorial()
+
+{int a,i,e=1;
+printf("enter a number\n");
+ scanf("%d",&a);
+for(i=1;i<=a;i++)
+e=e*i;
+return(e); }
