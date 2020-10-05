@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int N=100001;
+    
+    long long int n, x;
+    cin>>n;
+    
+    long long int c[N], dp[N];
+    for(long long int i=0; i<N; i++)
+    {
+        dp[i]=0;
+        c[i]=0;
+    }
+    
+    
+    for(long long int i=0; i<n; i++)
+    {
+        cin>>x;
+        c[x]++;
+    }
+    
+    dp[0]=0;
+    dp[1]=c[1];
+    
+    for(long long int i=2; i<N; i++)
+    {
+        dp[i]=max(dp[i-1], dp[i-2]+i*c[i]);
+    }
+    
+    cout<<dp[N-1];
+    return 0;
+}
