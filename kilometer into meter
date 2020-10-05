@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+ float km,meter;
+ printf("Enter value in  kilometer\n");
+ scanf("%f",&km);
+ meter=km*1000;
+ printf("Value in meters is %f",meter);
+ getch();
+}
