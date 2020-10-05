@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void longestCommonSubsequence(string s1,string s2,int n1,int n2)
+{	
+	int table[n1+1][n2+1];	//we consider starting index to be 1 and ending to be n1+1 and n2+1 because we have to make nos. at index 0 as 0
+	for(int i=0;i<n1+1;i++)  
+	{
+		for(int j=0;j<n2+1;j++)   //abdul bari yt
+		{
+			if(i==0 || j==0) table[i][j]=0;
+			
+			else if(s1[i-1]==s2[j-1]) table[i][j]=1+table[i-1][j-1];  //since we consider starting index as 1 we have to subtract 1 to get the actual index of the string
+			
+			else table[i][j]=max(table[i][j-1],table[i-1][j]);
+		//	cout<<table[i][j]<<" ";
+		}
+	//	cout<<endl;
+	}
+	
+	int no;
+	char c;
+	char ans[100];
+	int i=n1+1; int j=n2+2;
+	while(i>0 && j>0)       //printing the sequence as per the table
+	{
+		if(table[i][j]==table[i][j-1])
+		{
+			no=table[i][j-1];
+			c=s2[j-1];
+			j--;
+			break;
+		}
+		else if(table[i][j]>table[i][j-1])
+		{
+			ans[no]=c;
+			i--;
+			break;
+		}
+	}
+	for(i=1;i<=no;i++) cout<<ans[i]<<" ";
+
+}
+
+int main()
+{
+	char s1[]="stone",s2[]="longest";
+	int n1=strlen(s1);	
+	int n2=strlen(s2);
+	longestCommonSubsequence(s1,s2,n1,n2);
+}
