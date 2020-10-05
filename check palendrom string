@@ -1,0 +1,28 @@
+#include<string.h>
+#include<stdio.h>
+int main()
+{
+    char str[30],str1[30];
+    int i=0,j=0,k=0,count=-1,n,l,m;
+    printf("enter the string ");
+   gets(str);
+   l=strlen(str)-1;
+   while(l>=0)
+   {
+       str1[i] = str[l];
+       ++i,--l;
+   }
+   str1[i]='\0';
+   n=strlen(str)-1;
+   m=strlen(str)-1;
+   while(n>=0)
+   {
+       if(str[j]==str1[k])
+        count++;
+        --n,++j,++k;
+   }
+   if(count==m)
+   {
+       printf("pal");
+   }
+}
