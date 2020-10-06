@@ -1,5 +1,4 @@
-Addition program in C
-
+//Addition of two numbers in C programming
 #include <stdio.h>
 int main()
 {
