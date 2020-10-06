@@ -1,0 +1,13 @@
+write a program to check no is even or odd.
+#include<stdio.h>
+int main()
+{
+ int no;
+ printf("Enter a number");
+ scanf("%d",&no);
+ if(no%2==0)
+ printf("even");
+ else
+ printf("odd");
+ return0;
+}
