@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+int a,b;
+scanf("Enter the value of a = %d and b = %d",&a ,&b);
+if(a>5 && b>1)
+printf("Valid ");
+else
+printf("Not Valid");
+
+return(0);
+}
