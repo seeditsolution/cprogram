@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<time.h>
+int spr(char you,char comp){
+    if(you == comp)
+        return 0;
+
+    else if(you == 's' && comp == 'p')
+        return 1;
+    
+    else if(you == 's' && comp == 'r')
+        return -1;
+
+    else if(you == 'p' && comp == 'r')
+        return 1;
+
+    else if(you == 'p' && comp == 's')
+        return -1;
+    
+    else if(you == 'r' && comp == 's')
+        return 1;
+
+    else if(you == 'r' && comp == 'p')
+        return -1;
+
+    else{
+        return 2;
+    }
+        
+}
+void main(){
+    
+    char you, comp, a;
+    int upper=2,lower=0;
+label:
+    srand(time(0));
+    int num = (rand() % (upper - lower + 1)) + lower; 
+
+    if(num == 0)
+    comp = 's';
+    else if(num == 1)
+    comp = 'p';
+    else
+    comp = 'r';
+    
+    printf("Choose 's' for seccisor, 'p' for paper & 'r' for rock : ");
+    fflush(stdin);
+    scanf("%c",&you);
+    printf("You had choosen '%c' and compute choosed '%c'.\n",you,comp);
+    int result = spr(you, comp);
+    if(result == -1)
+    {
+        printf("You loose!!!\n");
+    }
+    else if(result == 1){
+        printf("You win!!!\n");
+    }
+    else if(result == 0){
+    printf("Match Draw!!!\n");
+    }
+    else
+    printf("wrong input\n");
+    
+    lab:
+    printf("Do you want to play again press 'Y' or 'N' : ");
+    fflush(stdin);
+    scanf("%c",&a);
+    
+
+
+    if (a == 'y' || a == 'Y')
+    goto label;
+
+    else if(a == 'n' || a == 'N')
+    printf("Quiting Game...\n Thanks for play with us.");
+
+    else{
+    printf("You entered Wrong input please chosse b/w 'Y' or 'N'\n");
+    goto lab;
+    }
+}
