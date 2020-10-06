@@ -1,0 +1,26 @@
+include<stdio,h>
+include<conio.h>
+void main()
+{
+  int a,b;
+  clrscr();
+
+  printf("\n Enter any Two numbers\n");
+
+  printf("\n Enter First Number : ");
+  scanf("%d",&a);
+
+  printf("\n Enter Second Number : ");
+  scanf("%d",&b);
+
+  if(a<b)   //logical test
+   {
+    printf("\n %d is Smaller",a);
+   }
+  else
+   {
+    printf("\n %d is Smaller",b);
+   }
+
+ getch();
+}
