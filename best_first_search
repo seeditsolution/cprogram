@@ -1,0 +1,197 @@
+#include <iostream>
+#include <list>
+#include<queue>
+#include <bits/stdc++.h> 
+using namespace std;
+
+
+// VERTEX DEFINATION
+// IT CONTAINS:
+//		HEURISTIC VALUE
+// 		VISITED DURING THE SEARCH OR NOT
+struct node{
+	int h;
+	bool visited;
+};
+
+typedef struct node node;
+
+
+
+class Graph{
+	int V;
+	list<int> *l;
+		
+public:
+		// GRAPH CONTRUCTOR
+		Graph(int V){
+			this->V = V;
+			l = new list<int>[V];
+		}		
+		// PUT THE EDGES IN THE GRAPH
+		void addEdge(int x, int y){
+			l[x].push_back(y);
+			l[y].push_back(x);
+		}
+		// DISPLAY THE GRAPH
+		void printAdj(){
+			std::list<int>::iterator it;
+			for(int i=0;i<V;i++){
+				cout<<"VERTEX : "<<i<<"-> | ";
+				for(it = l[i].begin(); it!=l[i].end(); it++){
+					cout<< *it <<" | ";
+				}
+				cout<<endl;
+			}
+		}
+		// BEST FIRST SEARCH FUNCTION
+		void bestFirstSearch(node n[]){
+			// RECIEVE THE SOURCE AND DESTINATTION FOR THE SEARCH
+			int S,D;
+			cout<<"ENTER THE SOURCE OF THE BEST FIRST SEARCH: ";
+			cin>>S;
+			cout<<"ENTER THE DESTINATION OF THE BEST FIRST SEARCH: ";
+			cin>>D;
+			
+			// SETTING THE HEURISTIC VALUE FOR THE DESTINATION VERTEX TO 0
+			n[D].h = 0;
+			
+			// RESULTANT QUEUE
+			queue<int> r;
+			
+			// IMPLEMENTATION STACK
+			stack<int> s;
+			
+			// INITATE THE CALCULATION BY 
+			// PUSHING THE SOURCE VERTEX TO THE STACK
+			s.push(S);
+			// SET THE VERTEX TO VISITED
+			n[S].visited = true;
+			
+			// FLAG TO CHECK IF RESULT IS POSSIBLE OR NOT
+			int flag = 0;
+			
+			// LOOP TO CALCULATE THE SEARCH
+			// LOOP UNTIL IMPLEMENTATION STACK IS NOT EMPTY
+			while(!s.empty()){
+				
+				// CURRENT SOURCE
+				int CS = s.top();
+				// PUSH THE CURRENT SOURCE
+				// TO THE RESULTANT QUEUE
+				r.push(CS);
+				// POP THE CURRENT SOURCE FROM THE IMPLEMENTATION STACK
+				s.pop();
+				
+				// PRINT THE CURRENT SOURCE
+				cout <<"CURRENT SOURCE: "<< CS<<endl;
+				
+				// CHECK IF THE CURRENT SOURCE IS THE DESTINATION
+				if(CS == D){
+					flag = 1;
+					break;
+				}
+				
+				// INTIALIZE AN ARRAY OF V ELEMENTS
+				int arr[this->V];
+				
+				int end_cnt = 0;
+				
+				// INTIALIZINF AN ITERATOR
+				std::list<int>::iterator it;
+				
+				// LOOP TO CHECK THE ADJACENT ELEMENTS OF THE CURRENT SOURCE
+				// AND INPUT THEM INTO THE IMPLEMENTATION STACK BASED ON HEURISTICS
+				for(it=l[CS].begin(); it!=l[CS].end(); it++){
+					int i = 0;
+					if(!n[*it].visited){
+						// TO SORT THE ADJ VERTEX  BASED ON THE HEURISTICS
+						// USED BINARY INSERTION SORT HERE
+						for(i=0;i<end_cnt;i++){
+							if(n[*it].h > n[arr[i]].h){
+								for(int j=end_cnt;j>=i;j--){
+									arr[j+1] = arr[j];
+								}
+								break;
+							}
+						}
+						arr[i] = *it;
+						end_cnt++;
+					}
+				}
+				// INPUT THE ADJ, NON-VISITED TO THE IMPLEMENTATION STACK
+				for(int i=0;i<end_cnt;i++){
+					s.push(arr[i]);
+					n[arr[i]].visited = true;
+				}
+			}
+			
+			
+			// IN CASE OF NO RESULT FOUND
+			if(flag == 0){
+				cout<<"NO RESULT FOUND!!";
+			}else{
+				// DISPLAY THE RESULT
+				cout<<"\n\n THE RESULT OF THE BEST FIRST SEARCH IS: \n\n";
+				while(!r.empty()){
+					cout<<" "<<r.front()<<" ";
+					r.pop();
+				}
+			}	
+		}
+};
+ 
+
+
+
+int main(){
+	
+	int V,E;
+	cout<<"********** BEST-FIRST SEARCH ***********"
+		<<endl
+		<<endl;
+	cout<<"ENTER THE NUMBER OF VERTICES: ";
+	cin>>V;
+	node n[V];
+	
+	// GET USER INPUT FOR THE HEURISTIC VALUES
+	for(int i=0;i<V;i++){
+		cout<<"ENTER THE HEURISIC WEIGHT FOR: "<<i<<" ";
+		cin>>n[i].h;
+		n[i].visited = false;
+	}
+	
+	// INTIALIZE A GRAPH OBJECT
+	Graph g(V);
+	
+	cout<<"ENTER NUMBER OF EDGES: ";
+	cin>>E;
+	// GET THE EDGES OF THE GRAPH
+	for(int i=0;i<E;i++){
+		int x,y;
+		cout<<"ENTER THE SOURCE VERTEX: ";
+		cin>>x;
+		cout<<"ENTER THE DESTINATION VERTEX: ";
+		cin>>y;
+		g.addEdge(x,y);
+	}
+	
+	cout<<endl<<endl;
+	
+//	// DISPLAY THE GRAPH
+//	cout<<"THE GRAPH ENTERED IS: "<<endl;
+//	g.printAdj();
+//	
+//	// DISPLAY THE HEURISTIC VALUE ENTERED
+//	cout<<endl<<"HEURISTICS ENTERED ARE: ";
+//	for(int i=0;i<V;i++){
+//		cout<<"| "<<n[i].h<<" |";
+//	}
+	 
+	cout<<endl<<endl;
+	
+	// INITIATE THE BEST FIRST SEARCH
+	g.bestFirstSearch(n);
+	
+	return 0;
+}
