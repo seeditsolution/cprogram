@@ -1,0 +1,57 @@
+//C program to implement Bubble Sort and count the basic number of steps executed.
+//Author: Souvik Baruah
+
+#include <stdio.h> 
+int count[3]={0,0,0};
+void bubbleSort(int a[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)  
+    {       
+       for (j = 0; j < n-i-1; j++)  
+        {
+           if (a[j] > a[j+1])
+            {
+                int temp=a[j];      //Line 1
+                count[0]+=1;
+                a[j]=a[j+1];        //Line 2
+                count[1]+=1;
+                a[j+1]=temp;        //Line 3
+                count[2]+=1;
+            } 
+        }
+    }
+} 
+  
+
+void display(int a[], int n) 
+{ 
+	int i; 
+    printf("The sorted array in ascending order is:\n");
+	for (i = 0; i < n; i++) 
+		printf("%d ", a[i]); 
+	printf("\n"); 
+    for(int i=0;i<3;i++)
+    {
+        printf("Line %d executed %d times\n",i+1,count[i]);
+    }
+} 
+
+int main() 
+{ 
+	int n,i;
+    int a[100]; 
+	printf("Enter the number of elements:\n");
+    scanf("%d",&n);
+    a[n];
+    printf("Enter the elements:\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+	bubbleSort(a, n); 
+	display(a, n); 
+
+	return 0; 
+} 
