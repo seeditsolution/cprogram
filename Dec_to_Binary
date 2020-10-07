@@ -1,0 +1,36 @@
+#include <stdio.h>
+// #include<conio.h>
+
+int main()
+{
+    int a[10], i=0, n, l=0,max=0;
+    printf("Enter number to convert: ");
+    scanf("%d", &n);
+    for(i=0;n>0;i++)
+    {
+    a[i]=n%2;
+    n=n/2;
+    }
+    printf("%d-hello\n",i);
+    n = i - 1;
+    // printf("\nBinary of Given number : ");
+    // for (i = n; i >= 0; i--)
+    //     printf("%d", a[i]);
+    // printf("\n");
+    // n=i-1;
+    printf("\nBinary of Given number is : ");
+    for(i=n;i>=0;i--)
+    printf("%d  ",a[i]);
+    printf("\n");
+    for(i=n;i>=0;i--)
+    {
+            if(a[i]==1)
+            l++;
+            if(l>max)
+            max=l;
+            if(a[i]!=1)
+    }
+    printf("\nContinue one in number is %d" , max);
+    printf("\n");
+    return 0;
+}
