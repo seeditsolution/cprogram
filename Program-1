@@ -1,0 +1,16 @@
+// Program to find largest between two numbers
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int x, y, big;
+    printf("Enter any two number: ");
+    scanf("%d%d", &x, &y);
+    if(x>y)
+        big=x;
+    else
+        big=y;
+    printf("\nBiggest of the two number is: %d", big);
+    getch();
+    return 0;
+}
