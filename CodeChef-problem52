@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        int x,y,z;
+        cin >> x >> y >> z;
+
+        int maxValue = max(x,max(y,z));
+        int value = 0;
+        if(x != maxValue && y != maxValue){
+            value = x + y;
+        }
+        else if(y != maxValue && z != maxValue){
+            value = y + z;
+        }else{
+            value = x + z;
+        }
+
+        if(value == maxValue){
+            cout << "yes" << endl;
+        }else{
+            cout << "no" << endl;
+        }
+    }
+}
