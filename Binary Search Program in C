@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<conio.h>
+
+#define Max_Size 5
+
+void binary_search(int[],int);
+
+int main()
+{
+    int key[Max_Size],i,element;
+
+    printf("Find the Binary Search \n");
+    printf("\n Enter the %d element for searching : \n",Max_Size);
+
+    for(i = 0; i<Max_Size; i++)
+        scanf("%d" , &key[i]);
+
+        printf("Element the element to search : ");
+        scanf("%d", &element);
+
+        binary_search(key,element);
+        getch();
+
+        void binary_search(int find_key[],int element)
+         {
+             int f = 0,r = Max_Size,mid;
+
+             while(f <= r)
+             {
+                 mid = (f+r)/2;
+                  if(find_key[mid] == element)
+                  {
+                      printf("\n Search Element has been find : %d : find : Position : %d.\n",element,mid+1);
+                      break;
+                  }
+                  else if (find_key[mid] < element)
+                    f = mid + 1;
+                else
+                    r = mid - 1;
+            }
+             if(f > r)
+                 printf("\n Search Element : %d : not find \n", element);
+         }
+
+}
