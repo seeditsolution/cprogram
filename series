@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int ev=0,od=0;
+    cout << "Hello world!" << endl;
+    for (int i=1;i<=15;i++)
+    {
+        if(i%2==0)
+            {
+
+            cout<<ev<<",";
+            ev+=6;
+            }
+        else
+        {
+
+            cout<<od<<",";
+             od+=7;
+        }
+
+    }
+    cout<<"15 term is"<<od-7;
+    return 0;
+}
