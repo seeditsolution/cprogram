@@ -1,0 +1,10 @@
+#include <stdio.h> 
+#include <sys/types.h> 
+#include <unistd.h> 
+int main() 
+{ 
+	fork(); 
+
+	printf("Happy time understanding forking a process!\n"); 
+	return 0; 
+} 
