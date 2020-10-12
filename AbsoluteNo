@@ -1,0 +1,14 @@
+#include<stdio.h>  
+#include<stdlib.h>  
+  
+int main()  
+{  
+    int a;  
+  
+    printf("Enter a positive or negative number of your choise : \n");  
+    scanf("%d", &a);  
+  
+    printf("Absolute Value of |%d| is %d\n",a, abs(a));  
+  
+    return 0;  
+}  
