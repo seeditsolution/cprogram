@@ -1,0 +1,13 @@
+Different Types of Data Types in C
+1) Primitive
+    a.int
+    b.char
+    c.float
+    d.double
+    
+2) Derived
+    a.Array
+    b.Structure
+    c.Union
+    d.Enum
+    e.Pointer
