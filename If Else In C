@@ -1,6 +1,0 @@
-if(condition) {
-   // Statements inside body of if
-}
-else {
-   //Statements inside body of else
-}
