@@ -1,0 +1,10 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+int main() {
+     uint8_t ipv6[16],direccionIP[] = {193, 110, 128, 200};
+     ipv6 = &direccionIP; //this doesn't work, and I don't come up with any method
+     printf("%u", ipv6);
+     return 0;
+}
