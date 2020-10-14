@@ -1,7 +1,0 @@
-FindHeight( Node root)
-	If root == NULL 
-		return 0
-	else
-		int leftH = FindHeight ( root->left )
-		int rightH = FindHeight(root->right ) 
-	return max( leftH, rightH )+1
