@@ -1,6 +1,0 @@
-#define DELTA 1e-11 
-.... 
- 
-if (abs(b-a) <= DELTA) { 
-    (expression); 
-} 
