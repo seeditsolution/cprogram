@@ -1,0 +1,96 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fastio ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define t_times int t; cin >> t; while(t--)
+#define all(c) (c).begin(), (c).end()
+#define sci(n) scanf("%d", &n)
+#define scl(n) scanf("%lld", &n)
+#define prin(n) printf("%d\n", n)
+#define prln(n) printf("%lld\n", n)
+#define mk make_pair
+#define F first
+#define S second
+#define pb push_back
+typedef long long int LL; typedef unsigned long long ULL; typedef unsigned int uint;
+typedef long double LD; typedef pair< int, int> ii; typedef vector< int> vi;
+const int mod = 1e9 + 7; const LL INF = 9e18 + 2e17; const int inf = 2e9;
+const int N = 1e3 + 22; const double eps = 1e-10; const double PI = 3.14159265;
+
+void print(vector<vector<char>>& b)
+{
+    for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++){
+                cout<<b[i][j]<<' ';
+            }
+            cout<<endl;
+        }
+}
+bool isSafe(vector<vector<char>>& b,int row,int col,char c)
+    {
+        for(int i=0;i<9;i++){
+            if(b[i][col]==c){
+                return false;
+            }
+        }
+        for(int j=0;j<9;j++){
+            if(b[row][j]==c) return false;
+        }
+        int r1,r2,c1,c2;
+        r1=row/3; r1*=3;
+        r2=r1+2;
+        c1=col/3; c1*=3;
+        c2=c1+2;
+        for(int i=r1;i<=r2;i++){
+            for(int j=c1;j<=c2;j++){
+                if(b[i][j]==c)
+                    return false;
+            }
+        }
+        return true;
+    }
+    bool solve(vector<vector<char>>& b)
+    {
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                if(b[i][j]=='.')
+                {
+                    for(char c='1';c<='9';c++)
+                    {
+                        if(!isSafe(b,i,j,c))
+                            continue;
+                        b[i][j]=c;
+                        if(solve(b))
+                            return true;
+                        b[i][j]='.';
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+void solve()
+{
+    vector<vector<char> > b(9,vector<char>(9));
+    for(int i=0;i<9;i++){
+        for(int j=0;j<9;j++){
+            cin>>b[i][j];
+        }
+    }
+    solve(b);
+    print(b);
+
+    return;
+}
+
+int main()
+{
+    fastio;
+    //t_times
+    solve();
+    return 0;
+}
