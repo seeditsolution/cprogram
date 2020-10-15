@@ -1,0 +1,17 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+ 
+bool checkHarshad(int n) 
+{ 
+	int sum = 0; 
+	for (int temp = n; temp > 0; temp /= 10) 
+		sum += temp % 10; 
+	return (n % sum == 0); 
+} 
+
+int main() 
+{ 
+	checkHarshad(12) ? cout << "Yes\n" : cout << "No\n"; 
+	checkHarshad(15) ? cout << "Yes\n" : cout << "No\n"; 
+  return 0; 
+} 
