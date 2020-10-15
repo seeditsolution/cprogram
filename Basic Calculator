@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main()
+{
+	int ch;
+	float a,b;
+	printf("Enter The Two Numbers To Perform Operation \n");
+	scanf("%f %f",&a,&b);
+	printf("Enter The Choice \n");
+	printf("1. For Addition \n");
+	printf("2. For Subtraction \n");
+	printf("3. For Multiplication \n");
+	printf("4. For Division \n");
+	scanf("%d",&ch);
+	switch(ch)
+	{
+		case 1:
+			printf("%f",a+b);
+			break;
+			case 2:
+				printf("%f",a-b);
+				break;
+				case 3:
+					printf("%f",a*b);
+					break;
+					case 4:
+						printf("%f",a/b);
+						break;
+						default:
+							printf("WRONG CHOICE");
+							
+	}
+	
+	return 0;
+}
