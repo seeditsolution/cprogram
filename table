@@ -1,0 +1,17 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int no, t = 1;
+ 
+    printf(" Enter the Number for Table:");
+    scanf("%d", &no);
+    printf("Multiplication table of %d:\n ", no);
+    printf("--------------------------\n");
+    while (t <= 10)
+    {
+        printf(" %d x %d = %d \n ", no, t, no * t);
+        t++;
+    }
+    return 0;
+}
