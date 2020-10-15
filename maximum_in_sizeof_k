@@ -1,0 +1,25 @@
+#include <stdio.h>
+ 
+void printMax(int a[], int n, int k)
+{
+    int j, max;
+ 
+    for (int i = 0; i <= n - k; i++) {
+        max = arr[i];
+ 
+        for (j = 1; j < k; j++) {
+            if (arr[i + j] > max)
+                max = arr[i + j];
+        }
+        printf("%d ", max);
+    }
+}
+ 
+int main()
+{
+    int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int n = sizeof(a) / sizeof(a[0]);
+    int k = 3;
+    printMax(arr, n, k);
+    return 0;
+}
