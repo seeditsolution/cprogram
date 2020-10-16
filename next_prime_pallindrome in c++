@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(int n)
+{
+	if (n < 2 || n % 2 == 0)
+	{
+		return n == 2;
+	}
+	for (int i = 3; i * i <= n; i += 2)
+	{
+		if (n % i == 0)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+int solve(int n)
+{
+	if (8 <= n && n <= 11)
+	{
+		return 11;
+	}
+	for (int i = 1; i < 1000000; i++)
+	{
+		string str = to_string(i), r(str.rbegin(), str.rend());
+		int y = stoi(str + r.substr(1));
+		if (y >= n && isPrime(y))
+		{
+			return y;
+		}
+	}
+	return -1;
+}
+int main()
+{
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		cout << solve(n) << endl;
+	}
+	return 0;
+}
