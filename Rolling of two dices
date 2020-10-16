@@ -1,0 +1,65 @@
+#include <time.h>
+02
+#include <stdlib.h>
+03
+ 
+04
+int main(void){
+05
+    int num = 1, dice1, dice2, i, sum[11];
+06
+     
+07
+    srand (time(NULL));
+08
+    while (num != 0){
+09
+        printf("Enter number of rolls: \n");
+10
+        scanf("%u", &num);
+11
+        printf("\n");
+12
+        for (i = 2; i <= 12; i++){
+13
+            printf("%*.2d", 6, i);
+14
+        }
+15
+        printf("\n");
+16
+        for(i = 1; i <= 11; i++)
+17
+            sum[i] = 0;
+18
+        for (i = 1; i <= num; i++){
+19
+            dice1 = 1 + rand() % 6;
+20
+            dice2 = 1 + rand() % 6;
+21
+            sum[dice1 + dice2 - 1] = sum[dice1 + dice2 - 1] + 1;
+22
+        }
+23
+        printf("\n");
+24
+        for (i = 1; i <= 11; i++){
+25
+            printf("%*d", 6, sum[i]);
+26
+        }
+27
+        printf("\n");
+28
+        for (i = 1; i <= 11; i++){
+29
+        printf("%*.1f%%", 5, (sum[i]/(float)num) * 100);
+30
+       }
+31
+    }
+32
+    return 0;
+33
+}
