@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+
+    float a,b,c;
+ scanf("%f %f %f\n",&a,&b,&c);
+   float avarage;
+    printf("a= %f,b= %f,c=%f\n",a,b,c);
+    avarage= (a+b+c)/3.0 ;
+    printf("avarage = %4.2f\n",avarage);
+
+
+
+    return 0;
+}
