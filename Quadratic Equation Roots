@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	float x1,x2,a,b,c,D;
+	printf("enter the a of quadratic equation");
+    scanf("%f",&a);
+    printf("enter the b of quadratic equation");
+    scanf("%f",&b);
+    printf("enter the c of quadratic equation"); 
+    scanf("%f",&c);
+	D = sqrt((b*b)-(4*(a*c)));
+	x1 = (D-b)/(2*a);
+	x2 = (-D-b)/(2*a);
+	printf("The first root is : %f",x1);
+	printf("The second root is : %f",x2);
+	return 0;
+	
+	
+}
