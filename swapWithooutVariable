@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<conio.h>
+  void main()
+{
+  int one,two;
+  clrscr();
+  printf("\n Enter two numbers separated by a space - ")
+  scanf("\n %d %d",&one,&two);
+  one=one+two;
+  two=one-two;
+  one=one-two;
+  printf("\n Swapped numbers are - %d %d",one,two);
+  return (0);
+}
