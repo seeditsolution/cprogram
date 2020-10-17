@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+  int number1, number2;
+  printf("Insert two numbers:");
+  scanf("%d %d",&number1, &number2);
+  if(number1 > number2)
+     printf("%d is greatest",number1);
+  else if(number2 > number1)
+    printf("%d is greatest",number2);	
+  else
+     printf("%d and %d are equal", number1, number2);
+  return 0;
+}
