@@ -1,0 +1,61 @@
+//Function to insert the specified character into the array
+void putintobox(char arr[3][3], char ch, int box)
+{
+  switch(box)
+  {
+
+    case 1 :	if(arr[0][0] != 'X' && arr[0][0]!= 'O')
+                { arr[0][0] = ch;
+		          showbox(ch,1);
+		        }
+		        break;
+
+    case 2 :	if(arr[0][1] != 'X' && arr[0][1]!= 'O')
+		        { arr[0][1] = ch;
+		          showbox(ch,2);
+		        }
+		        break;
+
+    case 3 :	if(arr[0][2] != 'X' && arr[0][2]!= 'O')
+                { arr[0][2] = ch;
+		          showbox(ch,3);
+		        }
+		        break;
+
+    case 4 :	if(arr[1][0] != 'X' && arr[1][0]!= 'O')
+		       { arr[1][0] = ch;
+		         showbox(ch,4);
+		       }
+		        break;
+
+    case 5 :	if(arr[1][1] != 'X' && arr[1][1]!= 'O')
+		        { arr[1][1] = ch;
+		         showbox(ch,5);
+		        }
+		        break;
+
+    case 6 :	if(arr[1][2] != 'X' && arr[1][2]!= 'O')
+		        { arr[1][2] = ch;
+                  showbox(ch,6);
+		        }
+	        	break;
+
+    case 7 :	if(arr[2][0] != 'X' && arr[2][0]!= 'O')
+     		    { arr[2][0] = ch;
+		          showbox(ch,7);
+		        }
+		        break;
+
+    case 8 :	if(arr[2][1] != 'X' && arr[2][1]!= 'O')
+		        { arr[2][1] = ch;
+		          showbox(ch,8);
+		        }
+		        break;
+
+    case 9 :	if(arr[2][2] != 'X' && arr[2][2]!= 'O')
+		        { arr[2][2] = ch;
+		          showbox(ch,9);
+		        }
+		        break;
+   }//end of switch
+}
