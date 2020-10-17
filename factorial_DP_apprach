@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int64_t dp11[max1];        //creating a dp array
+
+int64_t fun(int64_t n1){  //function created
+    //logic started
+    /* EXPLANATION  OF THE WORKING OF THE PROGRAM
+        PREREQUEST - DYNAMIC PROGRAMMING CONCEPT 
+    
+    EXPLANATION->>
+    
+    if the dp11 array contains the solution the function will return (the solution)
+    else it will calculate the solution of the all solution and store it in the dp11
+    array so that we don't have to pree calculate the solution next time
+    
+    
+    test_cases->>
+    
+    5
+    
+    12
+    10
+    8
+    9
+    2
+    
+    output ofthe test_cases
+    
+    479001600
+    3628800
+    40320
+    362880
+    2
+    
+    */
+    
+    if(dp11[n1]==0){   
+        for(int64_t i=2;i<=n1;i++){
+            dp11[i]=dp11[i-1]*i;
+        }
+    }
+    
+    return dp11[n1] ;    //function reaturns the solution
+    
+    //logic end
+}
+
+int main(void){
+    dp11[0]=1;
+    dp11[1]=1;
+    
+    
+    int64_t n1 ,test_case;
+    cin>>test_case;
+    for(int64_t i=1;i<=test_case ;i++){
+        cin>>n1;
+        cout<<fun(n1)<<endl;
+    }
+    
+    
+}
