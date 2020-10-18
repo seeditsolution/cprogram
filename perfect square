@@ -1,0 +1,33 @@
+#include<stdio.h>
+ 
+int perfect_square_check(int temp)
+{
+      int count = 1;
+      while(temp > 0)
+      {
+            temp = temp - count;
+            count = count + 2;
+      }
+      if(temp == 0)
+      {
+            return 1;
+      }
+      return 0;
+}
+ 
+int main()
+{
+      int num, result;
+      printf("\nEnter the Number:\t");
+      scanf("%d", &num);
+      result = perfect_square_check(num);
+      if(result == 1)
+      {
+            printf("\n%d is a Perfect Square\n", num);
+      }
+      else
+      {
+            printf("\n%d is Not a Perfect Square\n", num);
+      }
+      return 0;
+}
