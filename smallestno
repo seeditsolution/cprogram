@@ -1,0 +1,7 @@
+#include<stdio.h>
+void main()
+{ int a,b,c;
+  printf("Enter a,b and c");
+  scanf("%d %d %d",&a,&b,&c);
+  a<b&&a<c?printf("a is smaller"):b<c?printf("b is smaller"):printf("c is smaller");
+}
