@@ -1,0 +1,16 @@
+   #include<stdio.h>
+
+
+int main(){
+
+int n, i=0;
+double r[1000], x;
+
+printf("Enter how many numbers\n");
+scanf("%i", &n);
+
+printf("Enter numbers\n");
+while(i<n){
+    scanf("%lf", &r[i]);
+    i++;
+    }
