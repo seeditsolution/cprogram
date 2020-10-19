@@ -1,0 +1,15 @@
+#include<stdio.h>
+void factor (int);
+int main()
+{int n;
+printf("write a no\n");
+scanf("%d",&n);
+factor(n);
+}
+void factor(int n)
+{int j;
+{for(j=1;j<=n;j++)
+if(n%j==0)
+{printf("%d\n",j);}}
+}
+
