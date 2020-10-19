@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main()
+{
+int i,j,n,num;
+printf("enter the value for array");
+scanf("%d",&n);
+int arr[n][n];
+for(i=0;i<n;i++)
+{
+    for(j=0;j<n;j++)
+    {
+        scanf("%d",&arr[i][j]);
+    }
+}
+for(int col=0;col<n;col++)
+{
+    if(col%2==0)//col==even number0%2==0
+    {
+       for(int r=0;r<n;r++)
+       {
+           printf("%d ",arr[r][col]);//
+       }
+    }
+    else
+    {
+         for(int r=n-1;r>=0;r--)
+          {
+              printf("%d ",arr[r][col]);
+          }
+    }
+}
+
+    return 0;
+}
