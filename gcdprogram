@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    while(n!=m)
+    {
+        if(m>n)
+        m=m-n;
+        else
+        n=n-m;
+    }
+    cout<<m<<endl;
+}
