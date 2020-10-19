@@ -1,0 +1,65 @@
+#include <stdio.h>
+int sumofnum(int n)
+{
+    int num,sum=0;
+    num=n;
+    while(num!=0)
+    { sum = sum + num%10;
+    num = num/10;
+    
+    }
+    return sum;//output of given value i.e 3646564 is 34
+};
+void pattern(char a){
+    int i,j,n,temp;
+    printf("enter any char value\n");
+    
+     for(i=0;i<5;i++)
+     {
+         for(j=0;j<8;j++)
+         {
+             if(j<4-i)
+             {
+                 printf("%c",a++);
+             }
+             else
+             printf(" ");
+             if(j>3+i)
+             {
+                printf("%c",--a);
+             }
+             else
+             printf(" ");
+         }
+     printf("\n");
+     }
+    };
+int findSumOfGivenNum( int arr)
+{
+    int i,j,sum=10,arr[0];
+    int hash[1000]={0};
+    for(i=0;i<10;i++)
+    {
+        hash[arr[i]]++;
+        if(hash[arr[i]]==1&&hash[sum-arr[i]]==1)
+        {
+            return(arr[i],sum-arr[i]);
+        }
+    }
+    
+};
+int main()
+{  
+    int n,c,out;
+    char p;
+    printf("Enter numbers for sum");
+    scanf("%d",&n);
+    c = sumofnum(n);
+    printf("sum of given value is %d\n",c);
+    pattern('A');
+   int fun[10] = {12,4,2,40,3,8,23,67,8,5};
+   int rum=fun[10];
+    out= findSumOfGivenNum(fun);
+    printf("%d",out);
+    return 0;
+}
