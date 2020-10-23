@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+int c=0,p=0,i,count;
+char s[100];
+char j;
+   printf("input the string");
+     gets(s);
+  printf("Enter a character to search: ");
+    j = getchar();
+
+    count = 0;
+    i=0;
+    while(s[i] != '\0')
+    {
+        
+        if(s[i] == j)
+        {
+            count++;
+        }
+
+        i++;
+    }
+
+    printf("Total occurrence of '%c' = %d", j, count);
+
+    return 0;
+}
