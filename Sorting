@@ -1,0 +1,215 @@
+#include<stdio.h>
+#include<stdlib.h>
+void heapify1(int arr[], int n, int i)
+{
+int largest = i;
+int l = 2*i+1;
+int r = 2*i+2;
+if(l<n && arr[l]>arr[largest])
+largest = l;
+if(r<n && arr[r]>arr[largest])
+largest = r;
+if(largest!=i)
+{
+int x;
+x = arr[i];
+arr[i] = arr[largest];
+arr[largest] = x;
+heapify1(arr,n,largest);
+}
+}
+void buildmaxHeap(int arr[], int n)
+{
+int last = (n/2)-1;
+for(int i=last; i >=0;i--)
+{
+heapify1(arr,n,i);
+}
+}
+void heapify2(int arr[],int n, int i)
+{
+int smallest =i;
+int l1=2*i+1;
+int r1=2*i+2;
+
+if(l1<n && arr[l1]<arr[smallest])
+smallest= l1;
+if(r1<n && arr[r1]<arr[smallest])
+smallest = r1;
+if(smallest!=i)
+{
+int x;
+x = arr[i];
+arr[i] = arr[smallest];
+arr[smallest] = x;
+heapify2(arr,n,smallest);
+}
+}
+void buildminHeap(int arr[],int n)
+{
+int last1 =(n/2)-1;
+for(int i=last1; i >=0;i--)
+{
+heapify2(arr,n,i);
+}
+}
+void heapSort1(int arr[],int n)
+{
+for (int i = n / 2 - 1; i >= 0; i--)
+{
+heapify2(arr, n, i);
+}
+for (int i = n - 1; i >= 0; i--)
+{
+int d;
+d=arr[0];
+arr[0]=arr[i];
+arr[i]=d;
+heapify2(arr,i,0);
+}
+}
+void heapsort2(int arr[],int n)
+{
+for (int i = n / 2 - 1; i >= 0; i--)
+
+{
+heapify1(arr, n, i);
+}
+for (int i = n - 1; i >= 0; i--)
+{
+int d;
+d=arr[0];
+arr[0]=arr[i];
+arr[i]=d;
+heapify1(arr,i,0);
+}
+}
+void printheap(int arr[],int n)
+{
+for(int i = 0;i<n;++i)
+{
+printf("%d ",arr[i]);
+}
+}
+
+int main()
+{
+int n,option,x,j=0,y;
+int arr[100];
+while(1)
+{
+printf("----------------------------------\n");
+printf("1.create a maxheap \n");
+printf("2.create a minheap \n");
+printf("3.convert any random array into a min heap or maxheap\n");
+printf("4.Heapsort using minheap and max heap\n");
+printf("----------------------------------\n");
+printf("enter the option: ");
+scanf("%d",&option);
+switch(option)
+{
+case 1: do
+
+{
+printf("enter element:");
+scanf("%d",&arr[j]);
+j++;
+n=j;
+buildmaxHeap(arr, n);
+printf(" maxheap is : ");
+printheap(arr, n);
+printf("\n");
+printf("for continue press 1 or 2 for exit: ");
+scanf("%d",&y);
+}
+while(y!=2);
+break;
+case 2: do
+{
+printf("enter element:");
+scanf("%d",&arr[j]);
+j++;
+n=j;
+buildminHeap(arr, n);
+printf(" minheap is : ");
+printheap(arr, n);
+printf("\n");
+printf("for continue press 1 or 2 for exit: ");
+scanf("%d",&y);
+}
+while(y!=2);
+break;
+case 3:
+printf("enter no.of elements to insert: ");
+scanf("%d",&n);
+printf("\n");
+printf("enter elements of array: ");
+for(int i=0;i<n;i++)
+{
+scanf("%d",&arr[i]);
+}
+printf("enter 1 for minheap and enter 2 for maxheap ");
+
+scanf("%d",&x);
+if(x==1)
+{
+buildminHeap(arr, n);
+printf(" minheap is : ");
+printheap(arr, n);
+}
+if(x==2)
+{
+buildmaxHeap(arr, n);
+printf(" maxheap is : ");
+printheap(arr, n);
+}
+break;
+case 4:printf("1.Heap sort using minheap\n");
+printf("2.Heap sort using maxheap\n");
+printf("enter choice: ");
+scanf("%d",&x);
+if(x==1)
+{
+do
+{
+printf("enter element:");
+scanf("%d",&arr[j]);
+j++;
+n=j;
+buildminHeap(arr, n);
+printf(" minheap is : ");
+printheap(arr, n);
+printf("\n");
+printf("for continue press 1 or 2 for exit: ");
+scanf("%d",&y);
+}
+while(y!=2);
+heapSort1(arr,n);
+printf("Sorted array is: ");
+printheap(arr,n);
+}
+if(x==2)
+
+{
+do
+{
+printf("enter element:");
+scanf("%d",&arr[j]);
+j++;
+n=j;
+buildmaxHeap(arr, n);
+printf(" maxheap is : ");
+printheap(arr, n);
+printf("\n");
+printf("for continue press 1 or 2 for exit: ");
+scanf("%d",&y);
+}
+while(y!=2);
+heapsort2(arr,n);
+printf("Sorted array is: ");
+printheap(arr,n);
+}
+}
+return 0;
+}
+}
