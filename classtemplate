@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+template <class T1,class T2>
+class Greater
+{
+    protected:
+    T1 a;
+    T2 b;
+public:
+    void sum(T1 n1,T2 n2)
+    {
+        a=n1;
+        b=n2;
+        if(a>b)
+            cout<<a<<" is greater than "<<b<<endl;
+        else
+            cout<<b<<" is greater than "<<a<<endl;
+    }
+};
+int main()
+{
+    Greater<int,int>ob1;
+    cout<<"for int,int :: "<<endl;
+    ob1.sum(10,20);
+    Greater<int,char>ob2;
+    cout<<"for int,char :: "<<endl;    
+    ob2.sum(10,'A');
+    Greater<int,float>ob3;
+    cout<<"for int,float :: "<<endl;
+    ob3.sum(10,2.5);
+}
