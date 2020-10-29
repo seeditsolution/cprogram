@@ -1,0 +1,136 @@
+#include<stdio.h>
+#include<math.h>
+#include<ctype.h>
+#define max 20
+char stack[max],postfix[50];// global declarion for the stack and its top varible
+int top = -1;
+
+void push(char item) //push operation for operators
+{
+	if(top==max-1)
+		printf("stack overflow");
+	else
+	{
+	   top++;
+       stack[top] = item;
+	}
+}
+
+char pop() //pop operation for operators
+{
+    if(top == -1)
+        printf("stack underflow");
+    else
+        return stack[top--];
+}
+int priority(char ch) // to determine the priority of the operators
+{
+    if(ch == '+' || ch == '-')
+        return 2;
+    if(ch == '*' || ch == '/')
+        return 3;
+	if(ch == '^')
+		return 1;
+    return 0;
+}
+void infix_to_postfix(char *infix) // evaluation of infix expression to postfix
+{
+	char x;
+	int i=0;
+    while(*infix != '\0')
+    {
+        if(isalnum(*infix))
+		{
+            postfix[i]= *infix;
+			i++;
+		}
+        else if(*infix == '(')
+            push(*infix);
+        else if(*infix == ')')
+        {
+			
+            while((x = pop()) != '(')
+			{
+                postfix[i]= x;
+				i++;
+			}
+			
+        }
+        else
+        {
+			
+            while(priority(stack[top]) >= priority(*infix))
+			{
+                postfix[i]= pop();
+				i++;
+			}
+			
+            push(*infix);
+        }
+        infix++;
+    }
+    
+   while(top!=-1)
+    {
+		if((x=pop())!='(')
+		{
+			postfix[i]=x;
+			i++;
+		}
+    }
+	postfix[i]='\0';
+	printf("postfix expression = %s",postfix);
+}
+// function for postfix to answer
+void postfix_to_result() // evaluation of postfix to result
+{
+	int num1,num2,r,i=0;
+	char n;
+	while(postfix[i]!='\0')
+	{
+		n=postfix[i];
+		if(isalpha(n))
+		{
+			getchar();
+			printf("\nEnter value of %c: ",n);
+			scanf("%c",&n);
+			push(n-'0');
+		}
+		else if(isdigit(n))
+		{
+			push(n-'0');
+		}
+		else if(n== '+' || n== '-' || n=='/' || n=='*' || n=='^')
+		{
+			num1= pop();
+			num2= pop();
+			switch(n)
+			{
+				case '+' : r=num1+num2;
+							break;
+				case '*' : r=num2*num1;
+							break;
+				case '/' : r=num2/num1;
+							break;
+				case '-' : r=num2-num1;
+							break;
+				case '^' : r=pow(num2,num1);
+							break;
+			}
+			push(r);
+		}
+		i++;
+	}
+	
+	printf("\nEvaluation = %d",pop()); 
+}
+int main() //main function for inputting the expression
+{
+    char infix[100];
+    printf("Enter the infix expression : ");
+    scanf("%s",infix);
+	infix_to_postfix(infix);
+	postfix_to_result();
+    
+	return 0;
+}
