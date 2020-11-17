@@ -1,0 +1,43 @@
+#include <stdio.h> 
+#include <conio.h>
+
+// Function to compares two strings 
+void compareStrings(char* x, char* y) 
+{ 
+	int flag = 0; 
+
+	// Iterate a loop  
+	while (*x != '\0' || *y != '\0') { 
+		if (*x == *y) { 
+			x++; 
+			y++; 
+		} 
+
+		// If two characters are not same 
+		// print the difference and exit 
+		else if ((*x == '\0' && *y != '\0') 
+				|| (*x != '\0' && *y == '\0') 
+				|| *x != *y) { 
+			flag = 1; 
+			printf("Uequal Strings\n"); 
+			break; 
+		} 
+	} 
+
+	// If two strings are same 
+	if (flag == 0) { 
+		printf("Equal Strings\n"); 
+	} 
+} 
+
+// main function
+int main(void) 
+{ 
+	// Given strings s1 and s2 
+	char s1[20] = "python"; 
+	char s2[20] = "dsa"; 
+
+	// Function Call 
+	compareStrings(s1, s2); 
+	return 0; 
+} 
