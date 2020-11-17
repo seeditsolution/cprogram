@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <conio.h>
+Void main ()
+Int a=4, b=5, result;
+{
+result=a+b;
+Printf ("result=%d");
+}
+getch();
