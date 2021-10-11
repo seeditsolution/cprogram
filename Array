@@ -1,3 +1,5 @@
+// About Array
+//An array is defined as the collection of similar type of data items stored at contiguous memory locations. Arrays are the derived data type in C programming language which can //store the primitive type of data such as int, char, double, float, etc. By using the array, we can access the elements easily. 
 / Program to take 5 values from the user and store them in an array
 // Print the elements stored in the array
 #include <stdio.h>
