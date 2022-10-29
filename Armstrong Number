@@ -1,3 +1,4 @@
+//Armstraong no
 #include <stdio.h>
 int main() {
     int num, originalNum, remainder, result = 0;
