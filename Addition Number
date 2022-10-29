@@ -1,4 +1,4 @@
-Addition program in C
+Addition program in C lang
 
 #include <stdio.h>
 int main()
